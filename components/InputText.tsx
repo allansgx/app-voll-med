@@ -1,11 +1,20 @@
 import { FormControl, IInputProps, Input } from "native-base";
 
 interface InputTextProps extends IInputProps {
-    label?: string,
-    placeholder: string
+    label?: string;
+    placeholder: string;
+    secureTextEntry?: boolean;
+    value?: string;
+    onChangeText?: (text: string) => void;
 }
 
-export function InputText({ label, placeholder, ...rest }: InputTextProps) {
+export function InputText({
+    label,
+    placeholder,
+    secureTextEntry = false,
+    value,
+    onChangeText
+}: InputTextProps) {
     return (
         <FormControl mt={3}>
             {
@@ -23,7 +32,9 @@ export function InputText({ label, placeholder, ...rest }: InputTextProps) {
                 borderRadius='lg'
                 bgColor='gray.100'
                 shadow={3}
-                {...rest}
+                value={value}
+                onChangeText={onChangeText}
+                secureTextEntry={secureTextEntry}
             />
         </FormControl>
     )
