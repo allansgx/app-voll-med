@@ -9,3 +9,12 @@ export async function registerPaciente(paciente: Paciente) {
         throw error;
     }
 }
+
+export async function getDataPaciente(id: string) {
+    try {
+        const response = await api.get(`/paciente/${id}`)
+        return response.data
+    } catch (error) {
+        throw error;
+    }
+}

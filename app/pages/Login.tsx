@@ -29,7 +29,9 @@ export default function Login({ navigation }: LoginProps) {
 
         const tokenDecoded = jwtDecode(token) as any
         const patientId = tokenDecoded.id
-        asyncStorage.setItem(patientId)
+      
+        const pacienteAsyncStorage = useAsyncStorage('pacienteId')
+        pacienteAsyncStorage.setItem(patientId)
         navigation.navigate('Tabs')
       })
       .catch((error) => {
