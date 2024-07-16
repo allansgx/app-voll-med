@@ -7,6 +7,7 @@ const Tab = createNativeStackNavigator()
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Tabs from "../Tabs";
+import Scheduling from "../pages/Scheduling";
 
 export default function Routes() {
     return (
@@ -25,6 +26,11 @@ export default function Routes() {
                 <Tab.Screen
                     name='Tabs'
                     component={Tabs}
+                    options={{ headerShown: false }}
+                />
+                <Tab.Screen
+                    name='Scheduling'
+                    component={Scheduling}
                     options={{ headerShown: false }}
                 />
             </Tab.Navigator>
