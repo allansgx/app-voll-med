@@ -18,3 +18,12 @@ export async function getDataPaciente(id: string) {
         throw error;
     }
 }
+
+export async function getConsultasPaciente(id: string) {
+    try {
+        const response = await api.get(`/paciente/${id}/consultas`)
+        return response.data
+    } catch (error) {
+        throw error;
+    }
+}

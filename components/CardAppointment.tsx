@@ -8,6 +8,7 @@ interface CardAppointmentProps {
     date?: string;
     wasAttended?: boolean;
     wasAgended?: boolean;
+    onPress?: () => void;
 }
 
 export function CardAppointment({
@@ -16,7 +17,8 @@ export function CardAppointment({
     specialty,
     date,
     wasAgended,
-    wasAttended
+    wasAttended,
+    onPress
 }: CardAppointmentProps){
     return (
         <VStack
@@ -40,7 +42,7 @@ export function CardAppointment({
                 </VStack>
             </VStack>
 
-            <Button mt={4}>
+            <Button mt={4} onPress={onPress}>
                 { wasAgended ? 'Cancelar' : 'Agendar consulta' }
             </Button>
         </VStack>
